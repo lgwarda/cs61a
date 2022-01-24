@@ -2,9 +2,9 @@ from operator import add, sub
 
 def a_plus_abs_b(a, b):
     """Return a+abs(b), but without calling abs.
-
+    
     >>> a_plus_abs_b(2, 3)
-    5 
+    5
     >>> a_plus_abs_b(2, -3)
     5
     >>> # a check that you didn't change the return statement!
@@ -101,13 +101,13 @@ def with_if_function():
 
 def cond():
     "*** YOUR CODE HERE ***"
-
+    return False
 def true_func():
     "*** YOUR CODE HERE ***"
-
+    print(42)
 def false_func():
     "*** YOUR CODE HERE ***"
-
+    print(47)
 
 def hailstone(n):
     """Print the hailstone sequence starting at n and return its
@@ -125,4 +125,10 @@ def hailstone(n):
     7
     """
     "*** YOUR CODE HERE ***"
-
+    print(n)
+    if n == 1:
+        return 1
+    elif n % 2 == 0:
+        return 1 + hailstone(n // 2)
+    else:
+        return 1 + hailstone(3 * n + 1)    
