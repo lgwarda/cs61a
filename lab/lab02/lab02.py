@@ -89,6 +89,9 @@ def composite_identity(f, g):
     False
     """
     "*** YOUR CODE HERE ***"
+    h1, h2 = compose1(f,g), compose1(g,f)
+    return lambda x: h1(x) == h2(x) 
+       
 
 
 
