@@ -47,7 +47,14 @@ def count_cond(condition):
     8
     """
     "*** YOUR CODE HERE ***"
-
+    def fun_count(n):
+        k, count = 1, 0
+        while k <= n:
+            if condition(n, k):
+                count += 1
+            k += 1
+        return count
+    return fun_count
 
 
 def compose1(f, g):
