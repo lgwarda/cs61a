@@ -170,11 +170,13 @@ def play(strategy0, strategy1, score0=0, score1=0, dice=six_sided,
         if who == 0:
             score_gained = take_turn(strategy0(score0, score1), score1, dice)
             score0 +=  score_gained
+            say = say(score0, score1)
             if not extra_turn(score0, score1):
                 who = other(who)
         else:
             score_gained = take_turn(strategy1(score1, score0), score0, dice)
             score1 += score_gained
+            say = say(score0, score1)
             if not extra_turn(score1, score0):
                 who = other(who)
             
