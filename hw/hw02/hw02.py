@@ -23,8 +23,13 @@ def num_eights(x):
     True
     """
     "*** YOUR CODE HERE ***"
-
-
+    if x == 8:
+        return 1
+    elif x != 8 and x < 10:
+        return 0
+    else:
+        return num_eights(x // 10) + num_eights(x % 10)
+    
 def pingpong(n):
     """Return the nth element of the ping-pong sequence.
 
