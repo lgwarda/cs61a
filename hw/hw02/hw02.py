@@ -101,7 +101,13 @@ def missing_digits(n):
     True
     """
     "*** YOUR CODE HERE ***"
-
+    if n < 10:
+        return 0
+    elif n % 10 - n // 10 % 10 - 1  == -1:
+        return missing_digits(n // 10)
+    else:
+        return n % 10 - n // 10 % 10 - 1 + missing_digits(n // 10)
+        
 
 def next_largest_coin(coin):
     """Return the next coin. 
@@ -137,6 +143,7 @@ def count_coins(total):
     True
     """
     "*** YOUR CODE HERE ***"
+    
 
 
 from operator import sub, mul
