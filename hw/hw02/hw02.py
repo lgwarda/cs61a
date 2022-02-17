@@ -143,7 +143,16 @@ def count_coins(total):
     True
     """
     "*** YOUR CODE HERE ***"
-    
+    def count(m, n):
+        if m == None:
+            return 0
+        if m == n:
+            return 1
+        elif m > n:
+            return 0
+        else:
+            return count(m, n - m) + count(next_largest_coin(m), n)
+    return count(1, total)
 
 
 from operator import sub, mul
