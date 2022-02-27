@@ -99,6 +99,12 @@ def autocorrect(user_word, valid_words, diff_function, limit):
     """
     # BEGIN PROBLEM 5
     "*** YOUR CODE HERE ***"
+    if user_word in valid_words:
+        return user_word
+    word = min(valid_words, key = lambda w: diff_function(user_word, w, limit))
+    if diff_function(user_word, word, limit) > limit:
+        return user_word
+    return word 
     # END PROBLEM 5
 
 
