@@ -3,7 +3,7 @@
 from utils import lower, split, remove_punctuation, lines_from_file
 from ucb import main, interact, trace
 from datetime import datetime
-
+from operator import sub
 
 ###########
 # Phase 1 #
@@ -200,6 +200,8 @@ def time_per_word(times_per_player, words):
     """
     # BEGIN PROBLEM 9
     "*** YOUR CODE HERE ***"
+    timestamps = [list(map(sub, p[1:], p)) for p in times_per_player]
+    return game(words, timestamps)
     # END PROBLEM 9
 
 
