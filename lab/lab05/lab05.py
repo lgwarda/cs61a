@@ -12,7 +12,7 @@ def couple(s, t):
     """
     assert len(s) == len(t)
     "*** YOUR CODE HERE ***"
-
+    return [[s[i],t[i]] for i in range(len(s))]
 
 from math import sqrt
 def distance(city_a, city_b):
