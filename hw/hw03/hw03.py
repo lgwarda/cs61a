@@ -1,6 +1,5 @@
 HW_SOURCE_FILE=__file__
 
-
 def mobile(left, right):
     """Construct a mobile from a left arm and a right arm."""
     assert is_arm(left), "left must be a arm"
@@ -44,11 +43,13 @@ def planet(size):
     """Construct a planet of some size."""
     assert size > 0
     "*** YOUR CODE HERE ***"
+    return ['planet', size]
 
 def size(w):
     """Select the size of a planet."""
     assert is_planet(w), 'must call size on a planet'
     "*** YOUR CODE HERE ***"
+    return w[1]
 
 def is_planet(w):
     """Whether w is a planet."""
