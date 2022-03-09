@@ -180,7 +180,14 @@ def replace_leaf(t, find_value, replace_value):
     True
     """
     "*** YOUR CODE HERE ***"
-
+    if is_leaf(t):
+        if label(t) == find_value:
+            t = tree(replace_value)
+        return t
+    return tree(
+        label(t),
+        [replace_leaf(b, find_value, replace_value) for b in branches(t)]
+    )
 
 def preorder(t):
     """Return a list of the entries in this tree in the order that they
