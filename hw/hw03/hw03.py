@@ -237,7 +237,11 @@ def has_path(t, word):
     """
     assert len(word) > 0, 'no path for empty word.'
     "*** YOUR CODE HERE ***"
-
+    def helper(tree, word):
+        if label(tree) == word:
+            return True
+        return any(helper(w, word[1:]) for w in branches(tree))
+    return helper(t, word)
 
 def interval(a, b):
     """Construct an interval from a to b."""
