@@ -200,7 +200,12 @@ def preorder(t):
     [2, 4, 6]
     """
     "*** YOUR CODE HERE ***"
-
+    if is_leaf(t):
+        return [label(t)]
+    k = [label(t)]
+    for b in branches(t):
+        k += preorder(b)
+    return k
 
 def has_path(t, word):
     """Return whether there is a path in a tree where the entries along the path
