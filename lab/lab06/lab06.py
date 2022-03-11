@@ -48,7 +48,13 @@ def make_fib():
     True
     """
     "*** YOUR CODE HERE ***"
-
+    pred, curr = 0, 1
+    def fib():
+        nonlocal pred, curr
+        k = pred
+        pred, curr = curr, pred + curr
+        return k
+    return fib
 
 def insert_items(lst, entry, elem):
     """
