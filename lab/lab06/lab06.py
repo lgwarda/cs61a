@@ -17,7 +17,12 @@ def make_adder_inc(a):
     11
     """
     "*** YOUR CODE HERE ***"
-
+    def adder(b):
+        nonlocal a
+        c = a + b
+        a += 1
+        return c
+    return adder 
 
 def make_fib():
     """Returns a function that returns the next Fibonacci number
