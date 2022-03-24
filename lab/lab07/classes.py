@@ -181,6 +181,7 @@ class TACard(Card):
         300
         """
         "*** YOUR CODE HERE ***"
+        other_card.attack, other_card.defense = other_card.defense, other_card.attack
         
     def copy(self):
         """
