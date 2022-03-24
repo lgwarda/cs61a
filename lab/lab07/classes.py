@@ -1,6 +1,6 @@
 # Magic the Lambda-ing!
 
-import random
+import random  
 
 class Card:
     cardtype = 'Staff'
@@ -23,7 +23,10 @@ class Card:
         500
         """
         "*** YOUR CODE HERE ***"
-
+        self.name = name
+        self.attack = attack
+        self.defense = defense
+        
     def power(self, other_card):
         """
         Calculate power as:
@@ -42,7 +45,7 @@ class Card:
         50.0
         """
         "*** YOUR CODE HERE ***"
-
+        return self.attack - (other_card.defense / 2)
 
     def effect(self, other_card, player, opponent):
         """
