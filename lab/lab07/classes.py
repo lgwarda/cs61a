@@ -153,8 +153,10 @@ class TutorCard(Card):
         True
         """
         "*** YOUR CODE HERE ***"
+        [opponent.hand.pop(0) for _ in range(3)]
+        opponent.hand += [opponent.deck.draw() for _ in range(3)]
         #Uncomment the line below when you've finished implementing this method!
-        #print('{} discarded and re-drew 3 cards!'.format(opponent.name))
+        print('{} discarded and re-drew 3 cards!'.format(opponent.name))
 
     def copy(self):
         """
@@ -179,7 +181,7 @@ class TACard(Card):
         300
         """
         "*** YOUR CODE HERE ***"
-
+        
     def copy(self):
         """
         Create a copy of this card.
@@ -209,6 +211,7 @@ class ProfessorCard(Card):
         """
         orig_opponent_deck_length = len(opponent.deck.cards)
         "*** YOUR CODE HERE ***"
+        
         discarded = orig_opponent_deck_length - len(opponent.deck.cards)
         if discarded:
             #Uncomment the line below when you've finished implementing this method!
@@ -255,7 +258,7 @@ class Game:
     win_score = 8
 
     def __init__(self, player1, player2):
-        """
+        """ 
         Initialize a game of <REPLACE NAME>.
         """
         self.player1, self.player2 = player1, player2
