@@ -171,7 +171,14 @@ class ThrowerAnt(Ant):
         This method returns None if there is no such Bee (or none in range).
         """
         # BEGIN Problem 3 and 4
-        return rANTdom_else_none(self.place.bees) # REPLACE THIS LINE
+        def helper(place,step):
+            if place is beehive or hasattr(self, 'max_range') and step > self.max_range:
+                return None
+            elif hasattr(self, 'min_range') and step < self.min_range or not place.bees:
+                return helper(place.entrance, step + 1)
+            else:
+                return rANTdom_else_none(place.bees)
+        return helper(self.place, 0)
         # END Problem 3 and 4
 
     def throw_at(self, target):
