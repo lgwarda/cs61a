@@ -25,11 +25,8 @@ class Place:
         # Phase 1: Add an entrance to the exit
         # BEGIN Problem 2
         "*** YOUR CODE HERE ***"
-<<<<<<< HEAD
-=======
         if self.exit is not None:
             exit.entrance = self
->>>>>>> phase1
         # END Problem 2
 
     def add_insect(self, insect):
@@ -143,42 +140,28 @@ class Ant(Insect):
 
 class HarvesterAnt(Ant):
     """HarvesterAnt produces 1 additional food per turn for the colony."""
-
     name = 'Harvester'
     implemented = True
-    # OVERRIDE CLASS ATTRIBUTES HERE
-<<<<<<< HEAD
-
-    def action(self, gamestate):
-=======
     food_cost = 2
+    # OVERRIDE CLASS ATTRIBUTES HERE
     def action(self, colony):
->>>>>>> phase1
         """Produce 1 additional food for the colony.
 
         gamestate -- The GameState, used to access game state information.
         """
         # BEGIN Problem 1
         "*** YOUR CODE HERE ***"
-<<<<<<< HEAD
-=======
         colony.food += 1
->>>>>>> phase1
         # END Problem 1
 
 
 class ThrowerAnt(Ant):
     """ThrowerAnt throws a leaf each turn at the nearest Bee in its range."""
-
     name = 'Thrower'
     implemented = True
     damage = 1
     # ADD/OVERRIDE CLASS ATTRIBUTES HERE
-<<<<<<< HEAD
-
-=======
     food_cost = 3
->>>>>>> phase1
     def nearest_bee(self, beehive):
         """Return the nearest Bee in a Place that is not the HIVE (beehive), connected to
         the ThrowerAnt's Place by following entrances.
@@ -186,9 +169,6 @@ class ThrowerAnt(Ant):
         This method returns None if there is no such Bee (or none in range).
         """
         # BEGIN Problem 3 and 4
-<<<<<<< HEAD
-        return rANTdom_else_none(self.place.bees) # REPLACE THIS LINE
-=======
         def helper(place,step):
             if place is beehive or hasattr(self, 'max_range') and step > self.max_range:
                 return None
@@ -197,7 +177,6 @@ class ThrowerAnt(Ant):
             else:
                 return rANTdom_else_none(place.bees)
         return helper(self.place, 0)
->>>>>>> phase1
         # END Problem 3 and 4
 
     def throw_at(self, target):
@@ -221,7 +200,6 @@ def rANTdom_else_none(s):
 
 class ShortThrower(ThrowerAnt):
     """A ThrowerAnt that only throws leaves at Bees at most 3 places away."""
-
     name = 'Short'
     food_cost = 2
     # OVERRIDE CLASS ATTRIBUTES HERE
@@ -231,7 +209,6 @@ class ShortThrower(ThrowerAnt):
 
 class LongThrower(ThrowerAnt):
     """A ThrowerAnt that only throws leaves at Bees at least 5 places away."""
-
     name = 'Long'
     food_cost = 2
     # OVERRIDE CLASS ATTRIBUTES HERE
@@ -856,8 +833,5 @@ class AssaultPlan(dict):
     @property
     def all_bees(self):
         """Place all Bees in the beehive and return the list of Bees."""
-<<<<<<< HEAD
         return [bee for wave in self.values() for bee in wave]
-=======
-        return [bee for wave in self.values() for bee in wave]
->>>>>>> phase1
+
