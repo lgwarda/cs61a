@@ -201,19 +201,21 @@ def rANTdom_else_none(s):
 class ShortThrower(ThrowerAnt):
     """A ThrowerAnt that only throws leaves at Bees at most 3 places away."""
     name = 'Short'
-    food_cost = 2
     # OVERRIDE CLASS ATTRIBUTES HERE
+    food_cost = 2
+    max_range = 3
     # BEGIN Problem 4
-    implemented = False   # Change to True to view in the GUI
+    implemented = True   # Change to True to view in the GUI
     # END Problem 4
 
 class LongThrower(ThrowerAnt):
     """A ThrowerAnt that only throws leaves at Bees at least 5 places away."""
     name = 'Long'
-    food_cost = 2
     # OVERRIDE CLASS ATTRIBUTES HERE
+    food_cost = 2
+    min_range = 5
     # BEGIN Problem 4
-    implemented = False   # Change to True to view in the GUI
+    implemented = True   # Change to True to view in the GUI
     # END Problem 4
 
 class FireAnt(Ant):
