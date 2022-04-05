@@ -315,7 +315,7 @@ class Water(Place):
         # BEGIN Problem 8
         "*** YOUR CODE HERE ***"
         Place.add_insect(self, insect)
-        if  insect.is_watersafe == False:
+        if  not insect.is_watersafe:
             insect.reduce_armor(insect.armor)
         # END Problem 8
 
