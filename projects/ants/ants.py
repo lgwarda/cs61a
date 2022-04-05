@@ -1,4 +1,4 @@
-"""CS 61A pAresents Ants Vs. SomeBees."""
+"""CS 61A presents Ants Vs. SomeBees."""
 
 import random
 from ucb import main, interact, trace
@@ -294,6 +294,16 @@ class HungryAnt(Ant):
 
 # BEGIN Problem 7
 # The WallAnt class
+class WallAnt(Ant):
+    """WallAnt is an ant that does nothing each turn. It is useful because."""
+    name = "Wall"
+    food_cost = 4
+    implemeted = True
+
+    def __init__(self, armor=4):
+        Ant.__init__(self, armor))
+
+    
 # END Problem 7
 
 
