@@ -1,4 +1,4 @@
-"""CS 61A presents Ants Vs. SomeBees."""
+"""CS 61A pAresents Ants Vs. SomeBees."""
 
 import random
 from ucb import main, interact, trace
@@ -257,25 +257,37 @@ class HungryAnt(Ant):
     While digesting, the HungryAnt can't eat another Bee.
     """
     name = 'Hungry'
-    food_cost = 4
     # OVERRIDE CLASS ATTRIBUTES HERE
+    food_cost = 4
+    time_to_digest = 3
     # BEGIN Problem 6
-    implemented = False   # Change to True to view in the GUI
+    implemented = True   # Change to True to view in the GUI
     # END Problem 6
 
     def __init__(self, armor=1):
         # BEGIN Problem 6
         "*** YOUR CODE HERE ***"
+        Ant.__init__(self, armor)
+        self.digesting = 0
         # END Problem 6
 
     def eat_bee(self, bee):
         # BEGIN Problem 6
         "*** YOUR CODE HERE ***"
+        if bee == None:
+            return False
+        bee.reduce_armor(bee.armor)
+        return True
         # END Problem 6
 
     def action(self, gamestate):
         # BEGIN Problem 6
         "*** YOUR CODE HERE ***"
+        if self.digesting:
+            self.digesting -= 1
+        else: 
+            if self.eat_bee(rANTdom_else_none(self.place.bees)) == True:
+                self.digesting = self.time_to_digest
         # END Problem 6
 
 
