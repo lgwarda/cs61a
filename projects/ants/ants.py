@@ -105,6 +105,7 @@ class Ant(Insect):
 
     implemented = False  # Only implemented Ant classes should be instantiated
     food_cost = 0
+    buffed = False
     # ADD CLASS ATTRIBUTES HERE
 
     def __init__(self, armor=1):
@@ -326,23 +327,30 @@ class ScubaThrower(ThrowerAnt):
     implemented = True
     is_watersafe = True
     food_cost = 6
+
 # END Problem 9
 
 # BEGIN Problem EC
-class QueenAnt(Ant):  # You should change this line
+class QueenAnt(ScubaThrower):  # You should change this line
 # END Problem EC
     """The Queen of the colony. The game is over if a bee enters her place."""
-
     name = 'Queen'
     food_cost = 7
+    armor = 0
     # OVERRIDE CLASS ATTRIBUTES HERE
     # BEGIN Problem EC
-    implemented = False   # Change to True to view in the GUI
+    implemented = True  # Change to True to view in the GUI
     # END Problem EC
 
     def __init__(self, armor=1):
         # BEGIN Problem EC
         "*** YOUR CODE HERE ***"
+        if QueenAnt.armor == 0:
+            self.is_real = True
+        else:
+            self.is_real = False
+        QueenAnt.armor += 1
+        ScubaThrower.__init__(self, armor) 
         # END Problem EC
 
     def action(self, gamestate):
@@ -353,6 +361,18 @@ class QueenAnt(Ant):  # You should change this line
         """
         # BEGIN Problem EC
         "*** YOUR CODE HERE ***"
+        if self.is_real:
+            cur_place = self.place.exit
+            while True:
+                if cur_place == None:
+                    break
+                elif cur_place.ant != None and cur_place.ant.buffed == False:
+                    cur_place.ant.buffed = True
+                    cur_place.ant.damage *= 2
+                cur_place = cur_place.exit
+            ThrowerAnt.action(self, gamestate)
+        else:
+            QueenAnt.reduce_armor(self, self.armor)
         # END Problem EC
 
     def reduce_armor(self, amount):
@@ -361,9 +381,15 @@ class QueenAnt(Ant):  # You should change this line
         """
         # BEGIN Problem EC
         "*** YOUR CODE HERE ***"
+        ScubaThrower.reduce_armor(self, amount)
+        if self.is_real and self.armor <= 0:
+            bees_win()
+    # Override Ant.remove_from 
+    def remove_from(self, place):
+        if not self.is_real:
+            self.place = None
+            place.ant = None
         # END Problem EC
-
-
 
 class AntRemover(Ant):
     """Allows the player to remove ants from the board in the GUI."""
